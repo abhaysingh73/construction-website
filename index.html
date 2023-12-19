@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahadev Construction</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo {
+            width: 50px; /* Adjust the width as needed */
+            height: auto;
+            margin-right: 10px;
+        }
+
+        #company-name {
+            flex-grow: 1;
+        }
+
+
+        #slider {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .slider-image {
+            width: 100%;
+            display: none;
+        }
+
+        .slider-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .slider-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        #slider .slider-image:first-child {
+            display: block;
+        }
+
+        #about {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #about h2 {
+            color: #333;
+        }
+
+        #about p {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #fun-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #fun-icons img {
+            width: 60px;
+            margin: 0 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #fun-icons img:hover {
+            transform: scale(1.2);
+        }
+
+        #projects {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            max-width: 300px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .project-card h3 {
+            color: #333;
+        }
+
+        .project-card p {
+            color: #666;
+        }
+
+        #contact {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #contact-form {
+            max-width: 400px;
+            text-align: left;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        #contact-form button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+
+        #address {
+            max-width: 400px;
+            text-align: left;
+        }
+
+        #address h3 {
+            color: #333;
+        }
+
+        #address p {
+            color: #666;
+        }
+
+        #footer {
+            background-image: url('images/footer-background.jpg');
+            background-size: cover;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #social-media-icons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        #social-media-icons a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s ease-in-out;
+        }
+
+        #social-media-icons a:hover {
+            color: #ffd700; /* Change to your preferred hover color */
+        }
+
+        #company-logo {
+            margin-bottom: 20px;
+        }
+
+        #company-logo img {
+            width: 100px; /* Adjust the size as needed */
+            height: auto;
+        }
+
+        #locations {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #locations .location {
+            max-width: 200px;
+            text-align: left;
+        }
+
+        #locations h4 {
+            color: #ffd700; /* Change to your preferred text color */
+        }
+
+        #locations p {
+            color: #ddd; /* Change to your preferred text color */
+        }
+        /* Add this style for the hovering popup */
+        #popup-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            cursor: pointer;
+        }
+        #popup-container2 {
+            font-size: 13px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+            cursor: pointer;
+        }
+
+        #popup-container:hover , #popup-container2:hover {
+            background-color: #555;
+        }
+        #contact {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: #333;
+        }
+
+        #contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        #contact-form button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="images/mahadevc.jpeg" alt="mahaved" id="logo">
+        <h1 id="company-name">Mahadev Construction</h1>
+    </header>
+
+    <div id="slider">
+        <div class="slider-image">
+            <img src="images/image1.jpg" alt="Construction Image 1">
+            <div class="slider-text"><h1>Mahadev Construction</h1><br>Naam Vishwas Ka</div>
+        </div>
+        <div class="slider-image">
+            <img src="images/image2.jpg" alt="Construction Image 2">
+            <div class="slider-text"><h1>Mahadev Construction</h1><br>Naam Vishwas Ka</div>
+        </div>
+        <!-- Add more slider images with text as needed -->
+    </div>
+
+    <div id="about">
+        <h2>About Us</h2>
+        <p>Mahadev Construction is dedicated to turning your dreams into reality. With a passion for excellence and a commitment to quality, we take pride in every project we undertake.</p>
+        <!-- <br> -->
+        <p>Tute makaan..judte yaha hai</p>
+        <p>Naye Makan, Plaster, Chunayi, Hilti Machine, Slape Cutter, Bijali k wayring, Plumbring, Staring, Tiles, Patthar Lagane, Pop For Siling, Paint K Liye Sampark Kare...!!</p>
+        <div id="fun-icons">
+            <img src="images/hammer.png" alt="Hammer Icon">
+            <img src="images/blueprint.png" alt="Blueprint Icon">
+            <img src="images/worker.png" alt="Worker Icon">
+        </div>
+    </div>
+
+    <div id="projects">
+        <h2>Our Projects</h2>
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of Project 1 goes here.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Description of Project 2 goes here.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 3</h3>
+            <p>Description of Project 3 goes here.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 4</h3>
+            <p>Description of Project 4 goes here.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 5</h3>
+            <p>Description of Project 5 goes here.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 6</h3>
+            <p>Description of Project 6 goes here.</p>
+        </div>
+    </div>
+
+    <div id="contact">
+        <div id="contact-form">
+            <h2>Get in Touch</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Mobile Number" required>
+                <textarea placeholder="Comments" rows="4" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div id="address">
+            <h3>Our Address</h3>
+            <p>Mahadev Construction<br>
+                123 Main Street<br>
+                City, State 12345<br>
+                Country</p>
+                <h3>Call Us</h3>
+            <p>+918700208033<br>
+                +919721233116<br>
+                +918887922218n<br>
+                </p>
+        </div>
+    </div>
+    <div id="popup-container">
+        <a href="https://api.whatsapp.com/send/?phone=8700208033&text=Hi&type=phone_number&app_absent=0" style="color: white;"><img src="images/whatsappicon.png" style="height: 30px;"></a>
+    </div>
+    <!-- <div id="popup-container2">
+        <a href="https://api.whatsapp.com/send/?phone=8700208033&text=Hi&type=phone_number&app_absent=0" style="color: white;">Work with us</a>
+    </div> -->
+
+
+    <div id="footer">
+        <div id="social-media-icons">
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">Instagram</a>
+            <!-- Add more social media icons as needed -->
+        </div>
+        <div id="company-logo">
+            <img src="images/mahadevc.jpeg" alt="Company Logo">
+        </div>
+        <div id="locations">
+            <div class="location">
+                <h4>Noida</h4>
+                <!-- <p>Noida</p> -->
+            </div>
+            <div class="location">
+                <h4> Grater Noida</h4>
+                <!-- <p>456 Street, City2</p> -->
+            </div>
+            <div class="location">
+                <h4>Delhi  NCR</h4>
+                <!-- <p>789 Street, City3</p> -->
+            </div>
+        </div>
+        <p>© 2023 Mahadev Construction. All rights reserved.</p>
+    </div>
+
+    <script>
+        // JavaScript for image slider (you can use a library like Swiper or Slick for more features)
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.slider-image');
+
+        function showImage(index) {
+            images.forEach((image, i) => {
+                image.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        // Change image every 5 seconds (adjust as needed)
+        setInterval(nextImage, 5000);
+
+        // Show the first image initially
+        showImage(currentIndex);
+
+        // Add this script to make the popup visible
+        const popupContainer = document.getElementById('popup-container');
+        const popupContainer2 = document.getElementById('popup-container2');
+
+        // Show the popup after a delay (you can customize the delay)
+        setTimeout(() => {
+            popupContainer.style.display = 'block';
+            popupContainer2.style.display = 'block';
+        }, 1000); // Adjust the delay in milliseconds (e.g., 2000 for 2 seconds)
+    </script>
+
+</body>
+</html>
